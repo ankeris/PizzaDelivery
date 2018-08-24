@@ -18,8 +18,8 @@ function setup() {
     myCanvas = createCanvas(window.innerWidth, 400);
     chef = new Chef(chefImage);
 }
-function returnRandomNumber() {
-    return Math.round(random(0, 3))
+function returnRandomNumber(from, to) {
+    return Math.round(random(from, to))
 }
 function preload() {
     pdimg = loadImage('https://scontent-amt2-1.xx.fbcdn.net/v/t1.15752-9/39980143_466069140526039_8475969116564357120_n.png?_nc_cat=0&oh=142c14d95e5a987c92f7960a1df01486&oe=5BF9B6B3');
@@ -73,7 +73,7 @@ class Pedastrian {
 }
 
 window.setInterval(function () {
-    pedastrians.push(new Pedastrian(pedestrianImages[returnRandomNumber()]));
+    pedastrians.push(new Pedastrian(pedestrianImages[returnRandomNumber(1, 3)]));
     if (pedastrians.length == 3) {
         pedastrians.splice(0, 1);
     }
